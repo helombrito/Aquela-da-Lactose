@@ -1,0 +1,94 @@
+/* FONTES USADAS */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
+
+/* -------------------------------------------------------------- */
+
+/* BODY */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: montserrat;
+    padding-top: 88px;
+}
+
+/* -------------------------------------------------------------- */
+
+.contato {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: auto;
+    width: 100%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.imagem_contato {
+    width: 30%;
+    height: auto;
+    margin-right: 5%;
+}
+
+.imagem_contato img {
+    width: 100%;
+}
+
+.form_contato {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.btn_contato {
+    display: flex;
+    justify-content: end;
+}
+
+.form_contato input,
+.form_contato textarea {
+    width: 500px;
+    /* height: 20px; */
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border: #231942 1px solid;
+    padding: 5px;
+    font-family: montserrat;
+    font-size: small;
+}
+
+.input_mensagem {
+    height: 150px;
+    resize: none;
+    width: 100%;
+}
+
+.btn_enviar_contato {
+    background-color: #9F86C0;
+    color: white;
+    width: 150px;
+    height: 30px;
+    border: 0;
+    font-family: montserrat;
+    font-size: medium;
+}
+
+.divisor img {
+    margin-bottom: 20px;
+}
+
+.divisor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 90px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    font-family: dancing script;
+    font-size: 45px;
+}

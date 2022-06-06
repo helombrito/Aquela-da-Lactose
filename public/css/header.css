@@ -1,0 +1,110 @@
+/* FONTES USADAS */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
+
+/* -------------------------------------------------------------- */
+
+/* BODY */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: montserrat;
+    padding-top: 88px;
+}
+
+/* -------------------------------------------------------------- */
+
+/* MENU */
+
+.header {
+    box-shadow: 0px 0px 10px #2224;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    position: fixed;
+}
+
+.container_menu {
+    background-color: #5E548E;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 15px;
+}
+
+.navbar {
+    width: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    color: white;
+    padding: 0;
+}
+
+.navbar li {
+    position: relative;
+}
+
+.navbar li::after {
+    position: absolute;
+    top: 105%;
+    left: 0;
+    content: "";
+    width: 0;
+    height: 2px;
+    transition: .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background-color: white;
+}
+
+.navbar li:hover:after {
+    width: 100%;
+}
+
+.navbar .submenu ul {
+    width: 200px;
+    height: 0px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    background-color: #E0B1CB;
+    color: white;
+    list-style: none;
+    position: absolute;
+    top: 105%;
+    left: 10%;
+    box-shadow: 0 0 20px #2224;
+    overflow: hidden;
+}
+
+.navbar .submenu:hover ul {
+    height: 100px;
+    transition: .3s ease;
+    padding: 8px;
+    transition-delay: 300ms;
+}
+
+.agora {
+    font-weight: 700;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+}
+
+.redes_sociais {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 140px;
+}
+
+.redes_sociais img {
+    width: 30px;
+}

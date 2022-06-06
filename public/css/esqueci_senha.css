@@ -1,0 +1,73 @@
+/* FONTES USADAS */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
+
+/* -------------------------------------------------------------- */
+
+/* BODY */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: montserrat;
+    padding-top: 88px;
+}
+
+/* -------------------------------------------------------------- */
+
+.container_geral {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+}
+
+.container_esqueceu_senha {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #FFEDF6;
+    border-radius: 20px;
+    height: 300px;
+    width: 800px;
+    padding-left: 50px;
+}
+
+.esqueci_senha {
+    border: #231942 2px solid;
+}
+
+.titulo_esqueceu_senha {
+    color: #5E548E;
+}
+
+.texto_esqueceu_senha {
+    font-size: medium;
+}
+
+.email_esqueceu_senha {
+    margin-top: 20px;
+}
+
+.esqueceu_senha input {
+    width: 77%;
+    height: 20px;
+    border-radius: 10px;
+    border: #9F86C0 1px solid;
+    padding: 5px;
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+
+.btn_redefinir_senha {
+    background-color: #5E548E;
+    margin-top: 10px;
+    height: 35px;
+    width: 180px;
+    border: 0;
+    font-family: montserrat;
+    color: white;
+    font-size: medium;
+}

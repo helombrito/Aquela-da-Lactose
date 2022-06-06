@@ -1,0 +1,109 @@
+/* FONTES USADAS */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
+
+/* -------------------------------------------------------------- */
+
+/* BODY */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: montserrat;
+    padding-top: 88px;
+}
+
+/* -------------------------------------------------------------- */
+
+.container_geral {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+}
+
+.container_login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFEDF6;
+    border-radius: 20px;
+    height: 400px;
+    width: 800px;
+}
+
+.container_img img {
+    width: 500px;
+    height: 400px;
+    display: flex;
+    justify-content: end;
+}
+
+.form_login {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: left;
+}
+
+.login {
+    width: 80%;
+}
+
+.titulo_login {
+    color: #9F86C0;
+}
+
+.form_login input {
+    width: 77%;
+    height: 30px;
+    border-radius: 10px;
+    border: #5E548E 1px solid;
+    padding: 5px;
+}
+
+.esqueci_senha {
+    font-size: small;
+    margin-top: 0;
+    color: #5E548E;
+}
+
+.form_login button {
+    background-color: #231942;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.novo_cadastro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.novo_aqui,
+.esqueci_senha {
+    font-size: small;
+    text-align: center;
+    color: #9F86C0;
+}
+
+.esqueci_senha a {
+    color: #5E548E;
+}
+
+.btn_entrar {
+    background-color: #9F86C0;
+    color: white;
+    width: 150px;
+    height: 30px;
+    border: 0;
+    font-family: montserrat;
+    font-size: medium;
+}
