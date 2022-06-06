@@ -1,0 +1,570 @@
+/* -------------------------------------------------------------- */
+
+/* FONTES USADAS */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
+
+/* -------------------------------------------------------------- */
+
+/* BODY */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: montserrat;
+    padding-top: 88px;
+}
+
+/* -------------------------------------------------------------- */
+
+/* MENU */
+
+.header {
+    box-shadow: 0px 0px 10px #2224;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    position: fixed;
+}
+
+.container_menu {
+    background-color: #5E548E;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 15px;
+}
+
+.navbar {
+    width: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    color: white;
+    padding: 0;
+}
+
+.navbar li {
+    position: relative;
+}
+
+.navbar li::after {
+    position: absolute;
+    top: 105%;
+    left: 0;
+    content: "";
+    width: 0;
+    height: 2px;
+    transition: .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background-color: white;
+}
+
+.navbar li:hover:after {
+    width: 100%;
+}
+
+.navbar .submenu ul {
+    width: 200px;
+    height: 0px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    background-color: #E0B1CB;
+    color: white;
+    list-style: none;
+    position: absolute;
+    top: 105%;
+    left: 10%;
+    box-shadow: 0 0 20px #2224;
+    overflow: hidden;
+}
+
+.navbar .submenu:hover ul {
+    height: 100px;
+    transition: .3s ease;
+    padding: 8px;
+    transition-delay: 300ms;
+}
+
+.agora {
+    font-weight: 700;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+}
+
+.redes_sociais {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 140px;
+}
+
+.redes_sociais img {
+    width: 30px;
+}
+
+/* -------------------------------------------------------------- */
+
+/* CATEGORIAS - PÁGINA DE INÍCIO */
+
+.container_categorias {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.categoria {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+    color: white;
+    width: 300px;
+    height: 380px;
+    text-align: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    font-size: 20px;
+    box-shadow: 5px 5px 10px #2224;
+}
+
+.btn_categoria {
+    border: 2px white solid;
+    background-color: transparent;
+    color: white;
+    padding: 10px;
+    width: 120px;
+    font-size: medium;
+    margin-top: 10px;
+}
+
+.btn_categoria:hover,
+.btn_categoria:focus,
+.btn_populares:hover,
+.btn_populares:focus {
+    color: #231942;
+    outline: 0;
+}
+
+.efeito_btn {
+    -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+.efeito_btn:hover {
+    box-shadow: 0 0 40px 40px #FFEDF6 inset
+}
+
+.categoria1 {
+    background-image: url(../img/tudo-sobre-lactose.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.categoria2 {
+    background-image: url(../img/receitas-que-amamos.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.categoria3 {
+    background-image: url(../img/dicas-para-facilitar-a-vida.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* -------------------------------------------------------------- */
+
+/* OS MAIS POPULARES - PÁGINA DE INÍCIO */
+
+.divisor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 90px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    font-family: dancing script;
+    font-size: 45px;
+}
+
+.divisor img {
+    margin-bottom: 20px;
+}
+
+.categoria_populares {
+    background-color: #9F86C0;
+    height: 450px;
+}
+
+.btn_populares {
+    border: 2px #FFEDF6 solid;
+    background-color: transparent;
+    color: #FFEDF6;
+    padding: 10px;
+    width: 160px;
+    font-size: large;
+    margin-top: 30px;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.titulo_populares {
+    font-size: large;
+    margin-top: 10px;
+}
+
+.texto_populares {
+    font-size: medium;
+    font-weight: 400;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.categoria_populares img {
+    width: 290px;
+}
+
+/* -------------------------------------------------------------- */
+
+/* NEWSLATTER - PÁGINA DE INÍCIO */
+
+.newslatter {
+    width: 100%;
+    height: 160px;
+    background-color: #231942;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.titulo_news {
+    color: white;
+    font-size: larger;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.formulario_news {
+    width: 950px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.formulario_news div {
+    align-self: flex-end;
+}
+
+.formulario_news input {
+    background-color: transparent;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    border-bottom: 2px white solid;
+    width: 400px;
+    text-align: center;
+    color: white;
+    font-size: medium;
+    padding: 5px;
+    outline: none;
+}
+
+.footer {
+    background-color: #E0B1CB;
+    height: 100px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.texto_footer {
+    font-size: small;
+}
+
+.contato {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: auto;
+    width: 100%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.imagem_contato {
+    width: 30%;
+    height: auto;
+    margin-right: 5%;
+}
+
+.imagem_contato img {
+    width: 100%;
+}
+
+.form_contato {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.btn_contato {
+    display: flex;
+    justify-content: end;
+}
+
+.form_contato input,
+.form_contato textarea {
+    width: 500px;
+    /* height: 20px; */
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border: #231942 1px solid;
+    padding: 5px;
+    font-family: montserrat;
+    font-size: small;
+}
+
+.input_mensagem {
+    height: 150px;
+    resize: none;
+    width: 100%;
+}
+
+.btn_enviar_contato {
+    background-color: #9F86C0;
+    color: white;
+    width: 150px;
+    height: 30px;
+    border: 0;
+    font-family: montserrat;
+    font-size: medium;
+}
+
+/* -------------------------------------------------------------- */
+
+/* PÁGINA DE LOGIN */
+
+.container_geral {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+}
+
+.container_login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFEDF6;
+    border-radius: 20px;
+    height: 400px;
+    width: 800px;
+}
+
+.container_img img {
+    width: 500px;
+    height: 400px;
+    display: flex;
+    justify-content: end;
+}
+
+.form_login {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: left;
+}
+
+.login {
+    width: 80%;
+}
+
+.titulo_login {
+    color: #9F86C0;
+}
+
+.form_login input {
+    width: 77%;
+    height: 30px;
+    border-radius: 10px;
+    border: #5E548E 1px solid;
+    padding: 5px;
+}
+
+.esqueci_senha {
+    font-size: small;
+    margin-top: 0;
+    color: #5E548E;
+}
+
+.form_login button {
+    background-color: #231942;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.novo_cadastro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.novo_aqui,
+.esqueci_senha {
+    font-size: small;
+    text-align: center;
+    color: #9F86C0;
+}
+
+.esqueci_senha a {
+    color: #5E548E;
+}
+
+/* -------------------------------------------------------------- */
+
+/* PÁGINA DE CADASTRO */
+
+.container_geral_cadastro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 700px;
+}
+
+.container_cadastro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFEDF6;
+    border-radius: 20px;
+    height: 600px;
+    width: 880px;
+}
+
+.container_img_cadastro img {
+    width: 400px;
+    height: 600px;
+    display: flex;
+    justify-content: end;
+}
+
+.form_cadastro {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+    padding-left: 30px;
+}
+
+.form_cadastro input {
+    width: 77%;
+    height: 20px;
+    border-radius: 10px;
+    border: #5E548E 1px solid;
+    padding: 5px;
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+
+.form_cadastro span {
+    font-size: 14px;
+}
+
+.data_nascimento {
+    font-family: montserrat;
+    width: 100px;
+    height: 20px;
+    border-radius: 10px;
+    border: #5E548E 1px solid;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+.genero {
+    font-family: montserrat;
+    width: 350px;
+    height: 33px;
+    border-radius: 10px;
+    border: #5E548E 1px solid;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+/* -------------------------------------------------------------- */
+
+/* PÁGINA DE ESQUECI A SENHA */
+
+.container_esqueceu_senha {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #FFEDF6;
+    border-radius: 20px;
+    height: 300px;
+    width: 800px;
+    padding-left: 50px;
+}
+
+.esqueci_senha {
+    border: #231942 2px solid;
+}
+
+.titulo_esqueceu_senha {
+    color: #5E548E;
+}
+
+.texto_esqueceu_senha {
+    font-size: medium;
+}
+
+.email_esqueceu_senha {
+    margin-top: 20px;
+}
+
+.esqueceu_senha input {
+    width: 77%;
+    height: 20px;
+    border-radius: 10px;
+    border: #9F86C0 1px solid;
+    padding: 5px;
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+
+.btn_redefinir_senha {
+    background-color: #5E548E;
+    margin-top: 10px;
+    height: 35px;
+    width: 180px;
+    border: 0;
+    font-family: montserrat;
+    color: white;
+    font-size: medium;
+}

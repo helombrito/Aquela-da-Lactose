@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro- Aquela da Lactose</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="container_menu">
+            <a href="index.html">
+                <img src="logo/Logo-Aquela-da-Lactose-branco.png" alt="Logo-Aquela-da-Lactose" width="180px">
+            </a>
+            <ul class="navbar">
+                <li>
+                    <a href="index.html">
+                        Início
+                    </a>
+                </li>
+                <li class="submenu">
+                    Conteúdo
+                    <ul>
+                        <li>
+                            <a href="tudo-sobre-lactose.html">
+                                Tudo sobre Lactose
+                            </a>
+                        </li>
+                        <li>
+                            <a href="receitas.html">
+                                Receitas
+                            </a>
+                        </li>
+                        <li>
+                            <a href="dicas.html">
+                                Dicas
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="contato.html">
+                        Contato
+                    </a>
+                </li>
+                <li>
+                    <a href="login.html">
+                        Login
+                    </a>
+                </li>
+                <li class="agora">
+                    <a href="cadastro.html">
+                        Cadastrar
+                    </a>
+                </li>
+            </ul>
+            <div class="redes_sociais">
+                <img src="img/instagram.png" alt="instagram">
+                <img src="img/facebook.png" alt="facebook">
+                <img src="img/pinterest.png" alt="pinterest">
+            </div>
+        </div>
+    </div>
+    <!-- FIM HEADER -->
+
+    <div class="container_geral_cadastro">
+
+        <div class="container_cadastro">
+
+            <div class="container_img_cadastro">
+                <img src="img/cadastro.png" alt="">
+            </div>
+
+            <div class="form_cadastro">
+
+                <div class="cadastro">
+                    <h2 class="titulo_login">
+                        Cadastro
+                    </h2>
+                </div>
+
+                <span>Nome:</span>
+                <input type="text" placeholder="Seu nome" id="input_nome_cadastro">
+
+                <span>Data de Nacimento:</span>
+                <input type="date" id="input_dtnasc" class="data_nascimento">
+
+                <span>Gênero:</span>
+                <select id="genero_usuario" class="genero">
+                    <option value="S">Selecione uma opção</option>
+                    <option value="F">Feminino</option>
+                    <option value="M">Masculino</option>
+                </select>
+
+                <span>E-mail:</span>
+                <input type="email" placeholder="exemplo@email.com.br" id="input_email_cadastro">
+
+                <span>Senha:</span>
+                <input type="password" placeholder="Informe a sua senha" id="input_senha">
+
+                <span>Confirmação de senha:</span>
+                <input type="password" placeholder="Confirme a sua senha" id="input_confirmacao_senha">
+
+                <button class="btn_enviar_contato" onclick="cadastrar()">
+                    Cadastrar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- INCIO FOOTER -->
+    <div class="footer">
+
+        <span class="texto_footer">
+            2022 © Aquela da Lactose por Heloisa Brito - Todos os Direitos Reservados. <br>
+            Faculdade São Paulo Tech School
+        </span>
+
+    </div>
+    <!-- FIM FOOTER -->
+
+    <script>
+
+        function cadastrar() {
+
+            var nomeVar = input_nome_cadastro.value;
+            var dtnascVar = input_dtnasc.value;
+            var generoVar = genero_usuario.value;
+            var emailVar = input_email_cadastro.value;
+            var senhaVar = input_senha.value;
+            var confirmacaoSenhaVar = input_confirmacao_senha.value;
+
+            if (nomeVar == "" || dtnascVar == "" || generoVar == "Selecione uma opção" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+                cardErro.style.display = "block"
+                alert("Preencha todos os campos para se cadastrar");
+
+                finalizarAguardar();
+                return false;
+
+            } else {
+                setInterval(sumirMensagem, 500)
+            }
+
+            fetch("usuarios/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    nomeServer: nomeVar,
+                    dtnascServer: dtnascVar,
+                    generoServer: generoVar,
+                    emailServer: emailVar,
+                    senhaServer: senhaVar
+                })
+            }).then(function (resposta) {
+
+                console.log("responta: ", resposta);
+
+                if (responta.ok) {
+                    cardErro.style.display = "block";
+
+                    alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
+
+                    setTimeout(() => {
+                        window.location = "login.html";
+                    }, "2000")
+
+                    limparFormulario();
+                    finalizarAguardar();
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                finalizarAguardar();
+            });
+
+            return false;
+        }
+
+        function sumirMensagem() {
+            cardErro.style.display = "none"
+        }
+
+    </script>
