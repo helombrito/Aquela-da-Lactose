@@ -75,16 +75,6 @@ body {
     margin-bottom: 15px;
 }
 
-.genero {
-    font-family: montserrat;
-    width: 350px;
-    height: 33px;
-    border-radius: 10px;
-    border: #5E548E 1px solid;
-    padding: 5px;
-    margin-bottom: 15px;
-}
-
 .btn_enviar_contato {
     background-color: #9F86C0;
     color: white;

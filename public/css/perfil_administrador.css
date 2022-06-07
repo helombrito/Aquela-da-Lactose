@@ -13,6 +13,155 @@ body {
     padding: 0;
     font-family: montserrat;
     padding-top: 88px;
+    min-height: 100vh;
+    overflow-y: hidden;
+    /* position: relative; */
 }
 
 /* -------------------------------------------------------------- */
+
+.container_geral {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-left: 400px;
+    min-height: calc(100vh - 180px);
+}
+
+.container_perfil {
+    background-color: #FFF3FA;
+    width: 400px;
+    height: calc(100vh - 180px);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 50px;
+    box-shadow: 5px 5px 10px #2224;
+    position: fixed;
+    top: 60px;
+    left: 0;
+}
+
+.container_perfil h1 {
+    color: #9F86C0;
+}
+
+.container_perfil img {
+    width: 280px;
+    filter: drop-shadow(5px 5px 10px #2224);
+}
+
+.container_perfil span,
+.container_perfil strong {
+    font-size: large;
+}
+
+.container_metricas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.divisor img {
+    margin-bottom: 20px;
+}
+
+.divisor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 120px; */
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    font-size: 45px;
+    font-weight: 700;
+    color: #9F86C0;
+}
+
+.footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+.metricas {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.usuarios_cadastrados {
+    background-color: #5E548E;
+    color: white;
+    width: 270px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.usuarios_cadastrados strong {
+    font-size: larger;
+    margin-bottom: 20px;
+}
+
+.usuarios_cadastrados span {
+    font-size: 80px;
+    font-weight: 800;
+}
+
+.media_idade {
+    background-color: #BE95C4;
+    color: white;
+    width: 270px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.media_idade strong {
+    font-size: larger;
+    margin-bottom: 20px;
+}
+
+.media_idade span {
+    font-size: 80px;
+    font-weight: 800;
+}
+
+.postagens_forum {
+    background-color: #231942;
+    color: white;
+    width: 600px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.postagens_forum strong {
+    font-size: larger;
+    margin-bottom: 20px;
+}
+
+.postagens_forum span {
+    font-size: 80px;
+    font-weight: 800;
+}
+
+.usuario_media {
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
+}

@@ -96,13 +96,6 @@
                 <span>Data de Nacimento:</span>
                 <input type="date" id="input_dtnasc" class="data_nascimento">
 
-                <span>Gênero:</span>
-                <select id="genero_usuario" class="genero">
-                    <option value="S">Selecione uma opção</option>
-                    <option value="F">Feminino</option>
-                    <option value="M">Masculino</option>
-                </select>
-
                 <span>E-mail:</span>
                 <input type="email" placeholder="exemplo@email.com.br" id="input_email_cadastro">
 
@@ -133,69 +126,3 @@
 
     </div>
     <!-- FIM FOOTER -->
-
-    <script>
-
-        function cadastrar() {
-
-            var nomeVar = input_nome_cadastro.value;
-            var dtnascVar = input_dtnasc.value;
-            var generoVar = genero_usuario.value;
-            var emailVar = input_email_cadastro.value;
-            var senhaVar = input_senha.value;
-            var confirmacaoSenhaVar = input_confirmacao_senha.value;
-
-            if (nomeVar == "" || dtnascVar == "" || generoVar == "Selecione uma opção" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
-                cardErro.style.display = "block"
-                alert("Preencha todos os campos para se cadastrar");
-
-                finalizarAguardar();
-                return false;
-
-            } else {
-                setInterval(sumirMensagem, 500)
-            }
-
-            fetch("usuarios/cadastrar", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    nomeServer: nomeVar,
-                    dtnascServer: dtnascVar,
-                    generoServer: generoVar,
-                    emailServer: emailVar,
-                    senhaServer: senhaVar
-                })
-            }).then(function (resposta) {
-
-                console.log("responta: ", resposta);
-
-                if (responta.ok) {
-                    cardErro.style.display = "block";
-
-                    alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
-
-                    setTimeout(() => {
-                        window.location = "login.html";
-                    }, "2000")
-
-                    limparFormulario();
-                    finalizarAguardar();
-                } else {
-                    throw ("Houve um erro ao tentar realizar o cadastro!");
-                }
-            }).catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-                finalizarAguardar();
-            });
-
-            return false;
-        }
-
-        function sumirMensagem() {
-            cardErro.style.display = "none"
-        }
-
-    </script>

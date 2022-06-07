@@ -1,0 +1,139 @@
+/* FONTES USADAS */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
+
+/* -------------------------------------------------------------- */
+
+/* BODY */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: montserrat;
+    padding-top: 88px;
+    min-height: 100vh;
+    /* overflow-y: hidden; */
+    /* position: relative; */
+}
+
+/* -------------------------------------------------------------- */
+
+.container_geral {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-left: 400px;
+    min-height: calc(100vh - 180px);
+}
+
+.container_perfil {
+    background-color: #FFF3FA;
+    width: 400px;
+    height: calc(100vh - 100px);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 50px;
+    box-shadow: 5px 5px 10px #2224;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    z-index: -1;
+}
+
+.container_perfil h1 {
+    color: #9F86C0;
+}
+
+.container_perfil img {
+    width: 280px;
+    filter: drop-shadow(5px 5px 10px #2224);
+}
+
+.container_perfil span,
+.container_perfil strong {
+    font-size: large;
+}
+
+/* .footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+} */
+
+.forum {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    width: 800px;
+    margin-top: 20px;
+}
+
+.titulo_forum {
+    font-size: 42px;
+    font-weight: 800;
+    color: #9F86C0;
+    margin-bottom: 20px;
+}
+
+.subtitulo_forum {
+    font-size: larger;
+}
+
+.forum span {
+    font-size: large;
+    margin-bottom: 10px;
+}
+
+.forum input {
+    width: 500px;
+    border: #231942 1px solid;
+    padding: 5px;
+    font-family: montserrat;
+    font-size: small;
+    font-size: medium;
+}
+
+.input_mensagem {
+    height: 150px;
+    resize: none;
+    width: 100%;
+    font-family: montserrat;
+    font-size: medium;
+}
+
+.btn_publicar {
+    background-color: #231942;
+    color: white;
+    width: 150px;
+    height: 30px;
+    border: 0;
+    font-family: montserrat;
+    font-size: medium;
+    margin-top: 15px;
+}
+
+.comentario {
+    margin-top: 40px;
+    background-color: rgb(242, 242, 242);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.titulo_comentario {
+    color: #5E548E;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.autor {
+    color: #9F86C0;
+    font-size: medium;
+}
