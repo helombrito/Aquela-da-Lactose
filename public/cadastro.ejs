@@ -20,12 +20,12 @@
     <!-- HEADER -->
     <div class="header">
         <div class="container_menu">
-            <a href="index.html">
+            <a href="/">
                 <img src="logo/Logo-Aquela-da-Lactose-branco.png" alt="Logo-Aquela-da-Lactose" width="180px">
             </a>
             <ul class="navbar">
                 <li>
-                    <a href="index.html">
+                    <a href="/">
                         Início
                     </a>
                 </li>
@@ -33,34 +33,34 @@
                     Conteúdo
                     <ul>
                         <li>
-                            <a href="tudo-sobre-lactose.html">
+                            <a href="/tudo-sobre-lactose">
                                 Tudo sobre Lactose
                             </a>
                         </li>
                         <li>
-                            <a href="receitas.html">
+                            <a href="/receitas">
                                 Receitas
                             </a>
                         </li>
                         <li>
-                            <a href="dicas.html">
+                            <a href="/dicas">
                                 Dicas
                             </a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="contato.html">
+                    <a href="/contato">
                         Contato
                     </a>
                 </li>
                 <li>
-                    <a href="login.html">
+                    <a href="/login">
                         Login
                     </a>
                 </li>
                 <li class="agora">
-                    <a href="cadastro.html">
+                    <a href="/cadastro">
                         Cadastrar
                     </a>
                 </li>
@@ -93,8 +93,8 @@
                 <span>Nome:</span>
                 <input type="text" placeholder="Seu nome" id="input_nome_cadastro">
 
-                <span>Data de Nacimento:</span>
-                <input type="date" id="input_dtnasc" class="data_nascimento">
+                <span>Idade:</span>
+                <input type="number" id="input_idade" class="idade_cadastro">
 
                 <span>E-mail:</span>
                 <input type="email" placeholder="exemplo@email.com.br" id="input_email_cadastro">
@@ -126,3 +126,67 @@
 
     </div>
     <!-- FIM FOOTER -->
+
+
+    <script>
+        async function cadastrar() {
+            var nome = input_nome_cadastro.value;
+            var idade = Number(input_idade.value);
+            var email = input_email_cadastro.value;
+            var senha = input_senha.value;
+            var confSenha = input_confirmacao_senha.value;
+
+
+
+            if (nome != "" && idade != "" && email != "" && senha != "" && confSenha != "") {
+
+                if (senha == confSenha) {
+
+
+                    let datas = {
+                        nome: nome,
+                        idade: idade,
+                        email: email,
+                        senha: senha,
+                    };
+                    /** @type {RequestInit} */
+                    let options = {
+                        cache: 'default',
+                        headers: { 'Content-Type': 'application/json' },
+                        mode: 'cors',
+                        method: 'POST',
+                        body: JSON.stringify(datas)
+                    };
+
+                    try {
+                        // passar a rota onde vc quer
+                        let req = await fetch('http://localhost:3000/user/cadastrar', options);
+                        /** @type {{message: string, result: Array<any>}} */
+                        let res = await req.json();
+                        console.log(res);
+
+                        if (res.message === 'OK') {
+                            nome = "";
+                            idade = "";
+                            email = "";
+                            senha = "";
+                            confSenha = "";
+
+                            alert("Você foi cadastrado com sucesso! Agora é só fazer o login :D");
+                        }
+
+                    } catch (error) {
+                        console.error(error);
+                        alert("Ops! Houve algum erro para cadastrar. Confira os campos e tente novamente.");
+                    }
+
+                } else {
+                    alert("Ops! Houve algum erro para cadastrar. Confira os campos e tente novamente.");
+                }
+            } else {
+                alert("Ops! Houve algum erro para cadastrar. Confira os campos e tente novamente.");
+            }
+        }
+
+
+    </script>

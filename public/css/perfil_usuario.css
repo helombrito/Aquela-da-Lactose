@@ -31,7 +31,7 @@ body {
 
 .container_perfil {
     background-color: #FFF3FA;
-    width: 400px;
+    width: 300px;
     height: calc(100vh - 100px);
     display: flex;
     justify-content: flex-start;
@@ -50,7 +50,7 @@ body {
 }
 
 .container_perfil img {
-    width: 280px;
+    width: 150px;
     filter: drop-shadow(5px 5px 10px #2224);
 }
 

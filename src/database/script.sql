@@ -4,9 +4,8 @@ USE AquelaDaLactose;
 CREATE TABLE Usuario (
 	idUsuario INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR (150),
+    idade INT,
     email VARCHAR (150),
-    dtNasc DATE,
-    genero CHAR (1) CHECK (genero = 'F' or genero = 'M'), -- F para Feminino e M para Masculino
     senha VARCHAR (45)
 );
 

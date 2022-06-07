@@ -5,25 +5,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Esqueci a Senha | Aquela da Lactose</title>
+    <title>Contato | Aquela da Lactose</title>
 
-    <link rel="stylesheet" href="css/esqueci_senha.css">
+    <link rel="stylesheet" href="css/contato.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/header.css">
+
 
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <div class="header">
+       <!-- HEADER -->
+       <div class="header">
         <div class="container_menu">
-            <a href="index.html">
+            <a href="/">
                 <img src="logo/Logo-Aquela-da-Lactose-branco.png" alt="Logo-Aquela-da-Lactose" width="180px">
             </a>
             <ul class="navbar">
                 <li>
-                    <a href="index.html">
+                    <a href="/">
                         Início
                     </a>
                 </li>
@@ -31,34 +32,34 @@
                     Conteúdo
                     <ul>
                         <li>
-                            <a href="tudo-sobre-lactose.html">
+                            <a href="/tudo-sobre-lactose">
                                 Tudo sobre Lactose
                             </a>
                         </li>
                         <li>
-                            <a href="receitas.html">
+                            <a href="/receitas">
                                 Receitas
                             </a>
                         </li>
                         <li>
-                            <a href="dicas.html">
+                            <a href="/dicas">
                                 Dicas
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <a href="contato.html">
+                <li class="agora">
+                    <a href="/contato">
                         Contato
                     </a>
                 </li>
                 <li>
-                    <a href="login.html">
+                    <a href="/login">
                         Login
                     </a>
                 </li>
                 <li>
-                    <a href="cadastro.html">
+                    <a href="/cadastro">
                         Cadastrar
                     </a>
                 </li>
@@ -72,40 +73,56 @@
     </div>
     <!-- FIM HEADER -->
 
-    <div class="container_geral">
 
-        <div class="container_esqueceu_senha">
+    <!-- INICIO CONTATO -->
+    <div class="divisor">
 
-            <div class="esqueceu_senha">
+        <span>
+            bora bater um papo?
+        </span>
 
-                <div class="senha">
-                    <h2 class="titulo_esqueceu_senha">
-                        Esqueceu a senha?
-                    </h2>
-                </div>
+        <img src="img/divisor.png" alt="" width="900px">
 
-                <span class="texto_esqueceu_senha">
-                    Não tem problema! Só precisamos do e-mail que você usou ao criar seu cadastro.
-                </span>
+    </div>
 
-                <div class="email_esqueceu_senha">
-                    <span>
-                        E-mail de cadastro:
-                    </span>
-                </div>
+    <div class="contato">
 
-                <input type="email" id="input_esqueceu_senha" placeholder="exemplo@email.com">
+        <div class="imagem_contato">
+            <img src="img/contato.jpg" alt="contato">
+        </div>
 
-                <button class="btn_redefinir_senha">
-                    redefinir senha
+        <div class="form_contato">
+
+            Nome: <br>
+            <input type="text" placeholder="Informe o seu nome" id="input_nome_contato">
+
+            <br>
+
+            E-mail: <br>
+            <input type="text" placeholder="Informe o seu e-mail" id="input_email_contato">
+
+            <br>
+
+            Assunto: <br>
+            <input type="text" placeholder="Informe o motivo do seu contato" id="input_assunto_contato">
+
+            <br>
+
+            Mensagem: <br>
+            <textarea type="text" placeholder="Deixe a sua mensagem aqui" id="input_mensagem_contato"
+                class="input_mensagem"></textarea>
+
+            <div class="btn_contato">
+                <button class="btn_enviar_contato">
+                    enviar
                 </button>
-
-
             </div>
 
         </div>
 
+
     </div>
+    <!-- FIM CONTATO -->
 
 
     <!-- INCIO FOOTER -->

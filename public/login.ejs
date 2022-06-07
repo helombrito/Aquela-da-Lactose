@@ -18,12 +18,12 @@
     <!-- HEADER -->
     <div class="header">
         <div class="container_menu">
-            <a href="index.html">
+            <a href="/">
                 <img src="logo/Logo-Aquela-da-Lactose-branco.png" alt="Logo-Aquela-da-Lactose" width="180px">
             </a>
             <ul class="navbar">
                 <li>
-                    <a href="index.html">
+                    <a href="/">
                         Início
                     </a>
                 </li>
@@ -31,34 +31,34 @@
                     Conteúdo
                     <ul>
                         <li>
-                            <a href="tudo-sobre-lactose.html">
+                            <a href="/tudo-sobre-lactose">
                                 Tudo sobre Lactose
                             </a>
                         </li>
                         <li>
-                            <a href="receitas.html">
+                            <a href="/receitas">
                                 Receitas
                             </a>
                         </li>
                         <li>
-                            <a href="dicas.html">
+                            <a href="/dicas">
                                 Dicas
                             </a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="contato.html">
+                    <a href="/contato">
                         Contato
                     </a>
                 </li>
                 <li class="agora">
-                    <a href="login.html">
+                    <a href="/login">
                         Login
                     </a>
                 </li>
                 <li>
-                    <a href="cadastro.html">
+                    <a href="/cadastro">
                         Cadastrar
                     </a>
                 </li>
@@ -94,7 +94,7 @@
                 <br>
 
                 <span class="esqueci_senha">
-                    <a href="esqueci_senha.html">
+                    <a href="/esqueci_senha">
                         Esqueci a senha
                     </a>
                 </span>
@@ -107,7 +107,7 @@
                     <span class="novo_aqui">
                         É novo por aqui?
                         <br>
-                        <a href="cadastro.html">
+                        <a href="/cadastro">
                             Crie a sua conta aqui!
                         </a>
                     </span>
@@ -130,3 +130,78 @@
 
     </div>
     <!-- FIM FOOTER -->
+
+    <script>
+
+        async function entrar() {
+            var email = input_email_login.value;
+            var senha = input_senha_login.value;
+
+
+            if (verificar()) {
+
+                let datas = {
+                    email: email,
+                    senha: senha,
+                };
+                /** @type {RequestInit} */
+                let options = {
+                    cache: 'default',
+                    headers: { 'Content-Type': 'application/json' },
+                    mode: 'cors',
+                    method: 'POST',
+                    body: JSON.stringify(datas)
+                };
+
+                try {
+                    let req = await fetch('http://localhost:3000/user/login', options);
+                    /** @type {{message: string, result?: Array<any>, status: number}} */
+                    let res = await req.json();
+                    console.log(res);
+                    if (res.message === 'OK' && res.result.length > 0) {
+                        limparCampos();
+                        sessionStorage.setItem('Usuario', JSON.stringify(res.result[0]));
+                        window.location.href = '/perfil_usuario';
+                    } else {
+                        alert("E-mail ou senha estão incorretos. Tente novamente!")
+                    }
+                } catch (error) {
+                    console.error(error);
+                    alert("Houve algum erro. Tente novamente!")
+                }
+
+            }
+
+        };
+
+        const verificar = () => {
+            let campo = [
+                input_email_login.value,
+                input_senha_login.value,
+            ];
+            let error = false;
+            for (let i = 0; i < campo.length; i++) {
+                let campoIncorreto = campo[i].trim() == '' || campo[i].length <= 0;
+                if (campoIncorreto) {
+                    error = true;
+                    break;
+                }
+            }
+
+            if (error) {
+                alert("Preencha todos os campos corretamente e tente novamente!")
+            }
+            return !error;
+        };
+        const limparCampos = () => {
+            let campos = [
+                input_email_login.value,
+                input_senha_login.value,
+            ];
+            for (let i = 0; i < campos.length; i++) {
+                campos[i].value = '';
+            }
+        };
+
+
+    </script>
