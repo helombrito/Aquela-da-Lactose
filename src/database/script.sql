@@ -6,7 +6,7 @@ CREATE TABLE Usuario (
     nome VARCHAR (150),
     idade INT,
     email VARCHAR (150),
-    senha VARCHAR (45)
+    senha VARBINARY (150)
 );
 
 SELECT * FROM Usuario;
@@ -19,3 +19,16 @@ CREATE TABLE Forum (
 );
 
 SELECT * FROM Forum;
+
+----------------------------------------------------------------------------------
+
+-- Selects Métricas
+
+-- QUANTIDADE DE CADASTROS
+select count(idUsuario) 'Quantidade de Usuários Cadastrados' from usuario;
+
+-- MÉDIA DE IDADES
+select truncate(avg(idade), 0) 'Média das Idades' from usuario;
+
+-- QUANTIDADE DE POSTAGENS NO FÓRUM
+select count(idForum) 'Quantidade de postagens no Fórum' from forum;

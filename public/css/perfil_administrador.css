@@ -14,7 +14,8 @@ body {
     font-family: montserrat;
     padding-top: 88px;
     min-height: 100vh;
-    overflow-y: hidden;
+    overflow-X: hidden;
+    /* overflow-y: hidden; */
     /* position: relative; */
 }
 
@@ -31,8 +32,9 @@ body {
 
 .container_perfil {
     background-color: #FFF3FA;
-    width: 400px;
-    height: calc(100vh - 180px);
+    width: 300px;
+    height: 100vh;
+    z-index: -1;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -49,7 +51,7 @@ body {
 }
 
 .container_perfil img {
-    width: 280px;
+    width: 150px;
     filter: drop-shadow(5px 5px 10px #2224);
 }
 
@@ -62,6 +64,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 6;
+    margin-top: 30px;
     flex-direction: column;
     width: 100%;
 }
@@ -84,10 +88,11 @@ body {
 }
 
 .footer {
-    position: absolute;
+    position: relative;
     width: 100%;
     bottom: 0;
     left: 0;
+    z-index: 90;
 }
 
 .metricas {

@@ -12,6 +12,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: montserrat;
+    overflow-: hidden;
     padding-top: 88px;
     min-height: 100vh;
     /* overflow-y: hidden; */
@@ -42,13 +43,11 @@ body {
     position: fixed;
     top: 60px;
     left: 0;
-    z-index: -1;
 }
 
 .container_perfil h1 {
     color: #9F86C0;
 }
-
 .container_perfil img {
     width: 150px;
     filter: drop-shadow(5px 5px 10px #2224);
@@ -59,12 +58,13 @@ body {
     font-size: large;
 }
 
-/* .footer {
-    position: absolute;
-    width: 100%;
+.footer {
+    position: relative;
     bottom: 0;
     left: 0;
-} */
+    width: 100%;
+    z-index: 90;
+}
 
 .forum {
     display: flex;

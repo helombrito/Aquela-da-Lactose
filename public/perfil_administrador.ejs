@@ -81,17 +81,13 @@
 
             <img src="img/perfil-adm.png" alt="perfil_adm">
 
-            <h2>Heloisa Brito</h2>
+            <h2 id="nome_usuario">Nome Usuário</h2>
 
-            <span>heloisa@sptech.com</span>
-            <br>
-            <br>
-            <strong>Data de Nascimento:</strong>
-            <span>06/04/1997</span>
+            <span id="email_usuario">exemplo@email.com</span>
             <br>
             <br>
             <span>
-                <a href="index.html">Sair</a>
+                <a href="/" onclick="sair()">Sair</a>
             </span>
 
         </div>
@@ -111,19 +107,19 @@
                 <div class="usuario_media">
                     <div class="usuarios_cadastrados">
                         <strong>Usuários <br>cadastrados</strong>
-                        <span>123</span>
+                        <span id="metrica_usuarios_cadastrados">123</span>
                     </div>
 
                     <div class="media_idade">
                         <strong>Média de idade</strong>
-                        <span>25</span>
+                        <span id="metrica_media_idade">25</span>
                     </div>
                 </div>
 
 
                 <div class="postagens_forum">
                     <strong>Quantidade de postagens no Fórum</strong>
-                    <span>280</span>
+                    <span id="metrica_qtd_postagens">280</span>
                 </div>
 
 
@@ -143,3 +139,23 @@
 
     </div>
     <!-- FIM FOOTER -->
+
+    <script>
+
+        var user = sessionStorage.getItem ("Usuario")
+        console.log (user)
+
+        var nome = JSON.parse (user).nome
+        var email = JSON.parse (user).email
+
+        nome_usuario.innerHTML = nome;
+        email_usuario.innerHTML = email;
+
+        function sair() {
+            sessionStorage.clear()
+        }
+
+        var 
+
+
+    </script>

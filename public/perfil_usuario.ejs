@@ -81,17 +81,14 @@
 
             <img src="img/perfil-usuario.png" alt="perfil_usuario">
 
-            <h2>Nome Usuário</h2>
 
-            <span>exemplo@email.com</span>
-            <br>
-            <br>
-            <strong>Data de Nascimento:</strong>
-            <span>dd/mm/aaaa</span>
+            <h2 id="nome_usuario">Nome Usuário</h2>
+
+            <span id="email_usuario">exemplo@email.com</span>
             <br>
             <br>
             <span>
-                <a href="index.html">Sair</a>
+                <a href="/" onclick="sair()">Sair</a>
             </span>
 
         </div>
@@ -182,3 +179,21 @@
 
     </div>
     <!-- FIM FOOTER -->
+
+    <script>
+
+        var user = sessionStorage.getItem ("Usuario")
+        console.log (user)
+
+        var nome = JSON.parse (user).nome
+        var email = JSON.parse (user).email
+
+        nome_usuario.innerHTML = nome;
+        email_usuario.innerHTML = email;
+
+        function sair() {
+            sessionStorage.clear()
+        }
+
+        
+    </script>

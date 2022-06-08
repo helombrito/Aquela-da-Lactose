@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GuilhermeDelfino/Individual.git"
+    "url": "git+https://github.com/helombrito/Aquela-da-Lactose.git"
   },
   "keywords": [],
   "author": "GuilhermeDelfino",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/GuilhermeDelfino/Individual/issues"
+    "url": "https://github.com/helombrito/Aquela-da-Lactose/issues"
   },
-  "homepage": "https://github.com/GuilhermeDelfino/Individual#readme",
+  "homepage": "https://github.com/helombrito/Aquela-da-Lactose.git#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "ejs": "^3.1.8",
