@@ -18,7 +18,7 @@ const commentRoute = require('./src/routes/CommentRoute');
 
 app.use('/', screenRoute);
 app.use('/user', userRoute);
-app.use('/comment', commentRoute);
+app.use('/postagem', commentRoute);
 
 app.listen(PORT, () =>
   console.log(`Seu servidor esta rodando no URL: http://localhost:${PORT}/`)

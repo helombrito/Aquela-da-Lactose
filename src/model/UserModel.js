@@ -1,46 +1,10 @@
 const { getConnection } = require('../database/Connection');
-const getAllUsers = () => {
-    try {
-        return new Promise((resolve, reject) => {
-            let stmt = `
-                select _idUser as id, nameUser as name, emailUser as email, ageUser as age from tbuser
-            `;
-            let conn = getConnection();
-            conn.execute(stmt, null, (err, result) => {
-                if (err) reject(err.message);
-                resolve(result);
-                return result;
-            });
-        });
-    } catch (error) {
-        throw error;
-    }
-};
-const getMetricsUser = (idUser) => {
+
+const PegarMetricas = () => {
     try {
         return new Promise((resolve, reject) => {
             let stmt = `select
-            (select count(_idUser) from tbuser join tbcomment on _idUser = fkUser where _idUser = ? limit 1) qtdComments,
-            (select count(_idUser) from tbuser join tbclip on _idUser = fkUser where _idUser = ? limit 1) qtdClip,
-            (select count(_idUser) from tbuser join tbclipfavorite on _idUser = fkUser where _idUser = ? limit 1) qtdFavorite;
-            `;
-            let conn = getConnection();
-            conn.execute(stmt, [idUser, idUser, idUser], (err, result) => {
-                if (err) reject(err.message);
-                resolve(result);
-                return result;
-            });
-        });
-    } catch (error) {
-        throw error;
-    }
-};
-const Metricas = () => {
-    try {
-        return new Promise((resolve, reject) => {
-            let stmt = `select 
-            (select count(_idUser) from tbuser) qtdUsers,
-            (select truncate(avg(ageUser), 0)  from tbuser) avgAge;
+            (select count(idUsuario) from usuario)as"qtd_usuarios", (select truncate(avg(idade), 0) from usuario)as"media_idades", (select count(idPostagem) from postagem)as"qtd_postagens";
             `;
             let conn = getConnection();
             conn.execute(stmt, null, (err, result) => {
@@ -107,9 +71,7 @@ const Login = (email, senha) => {
 
 };
 module.exports = {
-    getAllUsers,
     InserirUsuario,
     Login,
-    getMetricsUser,
-    Metricas
+    PegarMetricas,
 };

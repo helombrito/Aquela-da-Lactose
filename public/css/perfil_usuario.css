@@ -48,6 +48,7 @@ body {
 .container_perfil h1 {
     color: #9F86C0;
 }
+
 .container_perfil img {
     width: 150px;
     filter: drop-shadow(5px 5px 10px #2224);

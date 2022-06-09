@@ -12,16 +12,9 @@ const index = async () => {
         status: 200
     };
 };
-const metrics = async (idUser) => {
-    let values = await model.getMetricsUser(idUser);
-    return {
-        message: 'OK',
-        result: values,
-        status: 200
-    };
-};
-const all_metrics = async () => {
-    let values = await model.getMetrics();
+
+const PegarMetricas = async () => {
+    let values = await model.PegarMetricas();
     return {
         message: 'OK',
         result: values,
@@ -87,6 +80,5 @@ module.exports = {
     index,
     set,
     login,
-    metrics,
-    all_metrics,
+    PegarMetricas,
 };

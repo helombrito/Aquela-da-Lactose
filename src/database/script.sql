@@ -11,24 +11,27 @@ CREATE TABLE Usuario (
 
 SELECT * FROM Usuario;
 
-CREATE TABLE Forum (
-	idForum INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE Postagem (
+	idPostagem INT PRIMARY KEY AUTO_INCREMENT,
     fkUsuario INT,
-	qtdPostagens INT,
+    titulo VARCHAR(150),
+    mensagem VARCHAR(1000),
     FOREIGN KEY (fkUsuario) REFERENCES Usuario (idUsuario)
 );
 
-SELECT * FROM Forum;
+SELECT * FROM Postagem;
+
+insert into usuario (nome, idade, email, senha) values ('Guilherme Delfino', 18, 'delfino@email.com', 'delfino1');
+insert into postagem (fkusuario, titulo, mensagem) values (1, 'Sou novo aqui!', 'Oi, eu sou novo aqui!');
+
+select * from postagem join usuario on fkusuario = idusuario;
+
+select usuario.nome, postagem.titulo, postagem.mensagem from postagem join usuario on fkusuario = idusuario;
 
 ----------------------------------------------------------------------------------
 
 -- Selects Métricas
 
--- QUANTIDADE DE CADASTROS
-select count(idUsuario) 'Quantidade de Usuários Cadastrados' from usuario;
+select
+(select count(idUsuario) from usuario)as"qtd_usuarios", (select truncate(avg(idade), 0) from usuario)as"media_idades", (select count(idPostagem) from postagem)as"qtd_postagens";
 
--- MÉDIA DE IDADES
-select truncate(avg(idade), 0) 'Média das Idades' from usuario;
-
--- QUANTIDADE DE POSTAGENS NO FÓRUM
-select count(idForum) 'Quantidade de postagens no Fórum' from forum;

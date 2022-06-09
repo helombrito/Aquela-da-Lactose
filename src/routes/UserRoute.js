@@ -2,14 +2,8 @@ const route = require('express').Router();
 const controller = require('../controller/UserController');
 
 
-route.get('/get/metricas/:id', async (requisicao, resposta) => {
-    let datas = await controller.metrics(requisicao.params.id);
-    resposta
-        .json(datas)
-        .status(datas.status);
-});
 route.get('/get/metricas/', async (requisicao, resposta) => {
-    let datas = await controller.all_metrics();
+    let datas = await controller.PegarMetricas();
     resposta
         .json(datas)
         .status(datas.status);

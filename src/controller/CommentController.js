@@ -4,25 +4,26 @@ const model = require('../model/CommentModel');
  * @param {number} [id=0]
  * @return {<{message: string,result: Promise<Array<object>>,status: number}>} 
  */
-const index = async (id = 0) => {
+const PegarPostagens = async (id = 0) => {
     if (id > 0) {
 
     }
-    let values = await model.getLastComment();
+    let values = await model.PegarPostagens();
     return {
         message: 'OK',
         result: values,
         status: 200
     };
 };
-const set = async (comment, fkUser) => {
-    let commentCorrect = comment !== undefined && comment.trim().length > 0;
-    let fkUserCorrect = fkUser !== undefined && fkUser > 0;
+const InserirComentario = async (titulo, fkusuario, mensagem) => {
+    let MensagemCorreta = mensagem !== undefined && mensagem.trim().length > 0;
+    let fkUsuarioCorreto = fkusuario !== undefined && fkusuario > 0;
+    let TituloCorreto = titulo !== undefined && titulo.trim().length > 0;
 
-    let allCorrect = commentCorrect && fkUserCorrect;
+    let TudoCorreto = MensagemCorreta && fkUsuarioCorreto && TituloCorreto;
 
-    if (allCorrect) {
-        let values = await model.insertComment(comment, fkUser);
+    if (TudoCorreto) {
+        let values = await model.InserirComentario(titulo, fkusuario, mensagem);
         return {
             message: 'OK',
             result: values,
@@ -35,6 +36,6 @@ const set = async (comment, fkUser) => {
 
 
 module.exports = {
-    index,
-    set,
+    PegarPostagens,
+    InserirComentario
 };

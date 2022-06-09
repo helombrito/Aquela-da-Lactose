@@ -28,8 +28,11 @@ route.get('/perfil_usuario', (req, res) => {
 route.get('/receitas', (req, res) => {
     res.render("receitas");
 });
-route.get('/tudo_sobre_lactose', (req, res) => {
+route.get('/tudo-sobre-lactose', (req, res) => {
     res.render("tudo-sobre-lactose");
+});
+route.get('/conteudo', (req, res) => {
+    res.render("conteudo");
 });
 
 module.exports = route;

@@ -1,9 +1,9 @@
 const { getConnection } = require('../database/Connection');
-const getLastComment = () => {
+const PegarPostagens = () => {
     try {
         return new Promise((resolve, reject) => {
             let stmt = `
-                select _idComment as id, comment, fkUser as idUser, nameUser as name, YEAR(tbcomment.createdAt) as year from tbcomment join tbuser on fkUser = _idUser order by tbcomment.createdAt desc limit 5;
+            select usuario.nome, postagem.titulo, postagem.mensagem from postagem join usuario on fkusuario = idusuario;
             `;
             let conn = getConnection();
             conn.execute(stmt, null, (err, result) => {
@@ -19,17 +19,18 @@ const getLastComment = () => {
 
 /**
  * @description insert a comment on database
- * @param {string} comment
- * @param {number} fkUser
+ * @param {string} titulo
+ * @param {number} fkusuario
+ * @param {string} mensagem
  */
-const insertComment = (comment, fkUser) => {
+const InserirComentario = (titulo, fkusuario, mensagem) => {
     try {
         return new Promise((resolve, reject) => {
             let conn = getConnection();
             let stmt = `
-                insert into tbcomment (comment, fkUser) values (?, ?);
+            insert into postagem (fkusuario, titulo, mensagem) values (?, ?, ?);
             `;
-            let params = [comment, fkUser];
+            let params = [fkusuario, titulo, mensagem];
             conn.execute(stmt, params, (err, result) => {
                 if (err) reject(err.message);
                 resolve(result);
@@ -43,6 +44,6 @@ const insertComment = (comment, fkUser) => {
 
 
 module.exports = {
-    getLastComment,
-    insertComment,
+    PegarPostagens,
+    InserirComentario,
 };

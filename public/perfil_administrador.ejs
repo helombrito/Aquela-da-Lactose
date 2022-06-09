@@ -14,10 +14,10 @@
 
 </head>
 
-<body>
+<body onload="metrica()">
 
-       <!-- HEADER -->
-       <div class="header">
+    <!-- HEADER -->
+    <div class="header">
         <div class="container_menu">
             <a href="/">
                 <img src="logo/Logo-Aquela-da-Lactose-branco.png" alt="Logo-Aquela-da-Lactose" width="180px">
@@ -102,26 +102,7 @@
 
             </div>
 
-            <div class="metricas">
-
-                <div class="usuario_media">
-                    <div class="usuarios_cadastrados">
-                        <strong>Usuários <br>cadastrados</strong>
-                        <span id="metrica_usuarios_cadastrados">123</span>
-                    </div>
-
-                    <div class="media_idade">
-                        <strong>Média de idade</strong>
-                        <span id="metrica_media_idade">25</span>
-                    </div>
-                </div>
-
-
-                <div class="postagens_forum">
-                    <strong>Quantidade de postagens no Fórum</strong>
-                    <span id="metrica_qtd_postagens">280</span>
-                </div>
-
+            <div class="metricas" id="mostrar_metricas">
 
             </div>
 
@@ -142,11 +123,11 @@
 
     <script>
 
-        var user = sessionStorage.getItem ("Usuario")
-        console.log (user)
+        var user = sessionStorage.getItem("Usuario")
+        console.log(user)
 
-        var nome = JSON.parse (user).nome
-        var email = JSON.parse (user).email
+        var nome = JSON.parse(user).nome
+        var email = JSON.parse(user).email
 
         nome_usuario.innerHTML = nome;
         email_usuario.innerHTML = email;
@@ -155,7 +136,44 @@
             sessionStorage.clear()
         }
 
-        var 
+        async function metrica() {
+
+            try {
+
+                let req = await fetch('http://localhost:3000/user/get/metricas');
+                /** @type {{message: string, result: Array<any>}} */
+                let res = await req.json();
+                console.log(res);
+
+                if (res.message === 'OK') {
+
+                    var resultado = res.result[0];
+
+                    mostrar_metricas.innerHTML += ` 
+                            <div class="usuario_media">
+                                <div class="usuarios_cadastrados">
+                                    <strong>Usuários <br>cadastrados</strong>
+                                    <span id="metrica_usuarios_cadastrados">${resultado.qtd_usuarios}</span>
+                                </div>
+                                <div class="media_idade">
+                                    <strong>Média de idade</strong>
+                                    <span id="metrica_media_idade">${resultado.media_idades}</span>
+                                </div>
+                            </div>        
+                            
+                        
+                            <div class="postagens_forum">
+                                <strong>Quantidade de postagens no Fórum</strong>
+                                <span id="metrica_qtd_postagens">${resultado.qtd_postagens}</span>
+                            </div>
+                        `
+                }
+
+            } catch (error) {
+                console.error(error);
+                alert("Ops! Houve algum erro para mostrar as metricas. Recarregue a página novamente :D");
+            }
+        }
 
 
     </script>

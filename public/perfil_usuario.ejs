@@ -14,10 +14,10 @@
 
 </head>
 
-<body>
+<body onload="listarPostagem()">
 
-       <!-- HEADER -->
-       <div class="header">
+    <!-- HEADER -->
+    <div class="header">
         <div class="container_menu">
             <a href="/">
                 <img src="logo/Logo-Aquela-da-Lactose-branco.png" alt="Logo-Aquela-da-Lactose" width="180px">
@@ -114,52 +114,8 @@
 
             <button onclick="publicar()" class="btn_publicar">Publicar</button>
 
-            <div class="comentario">
-                <strong class="titulo_comentario">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                </strong>
+            <div id="postagens">
 
-                <span class="autor">
-                    Autor: Fulaninho
-                </span>
-
-                <span>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum totam dolorem natus ipsum eaque ea
-                    aperiam delectus vel eius corporis adipisci, blanditiis laborum quod aliquam, expedita cumque, culpa
-                    beatae hic!
-                </span>
-            </div>
-
-            <div class="comentario">
-                <strong class="titulo_comentario">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                </strong>
-
-                <span class="autor">
-                    Autor: Fulaninho
-                </span>
-
-                <span>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum totam dolorem natus ipsum eaque ea
-                    aperiam delectus vel eius corporis adipisci, blanditiis laborum quod aliquam, expedita cumque, culpa
-                    beatae hic!
-                </span>
-            </div>
-
-            <div class="comentario">
-                <strong class="titulo_comentario">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                </strong>
-
-                <span class="autor">
-                    Autor: Fulaninho
-                </span>
-
-                <span>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum totam dolorem natus ipsum eaque ea
-                    aperiam delectus vel eius corporis adipisci, blanditiis laborum quod aliquam, expedita cumque, culpa
-                    beatae hic!
-                </span>
             </div>
 
         </div>
@@ -182,11 +138,12 @@
 
     <script>
 
-        var user = sessionStorage.getItem ("Usuario")
-        console.log (user)
+        var user = sessionStorage.getItem("Usuario")
+        console.log(user)
 
-        var nome = JSON.parse (user).nome
-        var email = JSON.parse (user).email
+        var nome = JSON.parse(user).nome
+        var fkusuario = JSON.parse(user).idUsuario
+        var email = JSON.parse(user).email
 
         nome_usuario.innerHTML = nome;
         email_usuario.innerHTML = email;
@@ -195,5 +152,90 @@
             sessionStorage.clear()
         }
 
-        
+        async function publicar() {
+            var titulo = input_titulo_forum.value;
+            var mensagem = input_mensagem_forum.value;
+
+            console.log(titulo, mensagem);
+
+            if (titulo == "" && mensagem == "") {
+                alert("Ops! Você precisa preencher todos os campos :D");
+
+            } else {
+                let datas = {
+                    titulo: titulo,
+                    mensagem: mensagem,
+                    fkusuario: fkusuario,
+                };
+                /** @type {RequestInit} */
+                let options = {
+                    cache: 'default',
+                    headers: { 'Content-Type': 'application/json' },
+                    mode: 'cors',
+                    method: 'POST',
+                    body: JSON.stringify(datas)
+                };
+
+                try {
+
+                    let req = await fetch('http://localhost:3000/postagem/post', options);
+                    /** @type {{message: string, result: Array<any>}} */
+                    let res = await req.json();
+                    console.log(res);
+
+                    if (res.message === 'OK') {
+                        titulo = "";
+                        mensagem = "";
+
+
+                        alert("Mensagem inserida com sucesso :D");
+                    }
+
+                } catch (error) {
+                    console.error(error);
+                    alert("Ops! Houve algum erro para postar a sua mensagem. Confira os campos e tente novamente.");
+                }
+            }
+
+        }
+
+        async function listarPostagem() {
+            try {
+
+                let req = await fetch('http://localhost:3000/postagem/get');
+                /** @type {{message: string, result: Array<any>}} */
+                let res = await req.json();
+                console.log(res);
+
+                if (res.message === 'OK') {
+
+                    for (var i = 0; i < res.result.length; i++) {
+
+                        var postagem = res.result[i];
+
+                        postagens.innerHTML += ` 
+                        <div class="comentario">
+                            <strong class="titulo_comentario">
+                                ${postagem.titulo}
+                            </strong>
+
+                            <span class="autor">
+                                Autor: ${postagem.nome}
+                            </span>
+
+                            <span>
+                                ${postagem.mensagem}
+                            </span>
+                        </div>
+                        `
+
+                    }
+                }
+
+            } catch (error) {
+                console.error(error);
+                alert("Ops! Houve algum erro para postar a sua mensagem. Confira os campos e tente novamente.");
+            }
+        }
+
     </script>

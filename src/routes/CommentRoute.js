@@ -3,7 +3,7 @@ const controller = require('../controller/CommentController');
 
 
 route.get('/get', async (request, response) => {
-    let datas = await controller.index();
+    let datas = await controller.PegarPostagens();
 
     response
         .json(datas)
@@ -12,10 +12,12 @@ route.get('/get', async (request, response) => {
 });
 
 route.post('/post', async (request, response) => {
-    let comment = request.body.comment;
-    let fkUser = request.body.fkUser;
+    let mensagem = request.body.mensagem;
+    let fkusuario = request.body.fkusuario;
+    let titulo = request.body.titulo;
+    console.log(request.body)
 
-    let datas = await controller.set(comment, fkUser);
+    let datas = await controller.InserirComentario(titulo, fkusuario, mensagem);
     response
         .json(datas)
         .status(datas.status);

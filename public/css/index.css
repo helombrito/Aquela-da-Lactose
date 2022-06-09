@@ -106,37 +106,45 @@ body {
     margin-bottom: 20px;
 }
 
-.categoria_populares {
-    background-color: #9F86C0;
-    height: 450px;
+.linha_conteudos {
+    display: flex;
+    justify-content: space-around;
+    height: 520px;
+    /* width: 100%; */
+    padding: 30px;
 }
 
-.btn_populares {
-    border: 2px #FFEDF6 solid;
-    background-color: transparent;
-    color: #FFEDF6;
-    padding: 10px;
-    width: 160px;
-    font-size: large;
-    margin-top: 30px;
-    font-weight: 600;
-    margin-bottom: 0;
+.linha_conteudos img {
+    width: 340px;
+    margin-bottom: 20px;
 }
 
-.titulo_populares {
-    font-size: large;
-    margin-top: 10px;
+.linha_conteudos strong {
+    color: white;
+    font-size: larger;
+    margin-bottom: 15px;
 }
 
-.texto_populares {
-    font-size: medium;
-    font-weight: 400;
-    margin-top: 10px;
+.linha_conteudos span {
+    font-size: 17px;
+}
+
+.linha_conteudos a {
+    margin-top: 25px;
+    color: white;
+}
+
+.conteudo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
     text-align: center;
-}
-
-.categoria_populares img {
-    width: 290px;
+    margin: 20px;
+    background-color: #9F86C0;
+    box-shadow: 5px 5px 10px #2224;
+    width: 350px;
 }
 
 /* -------------------------------------------------------------- */

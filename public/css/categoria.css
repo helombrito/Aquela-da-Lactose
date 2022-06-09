@@ -1,0 +1,74 @@
+/* FONTES USADAS */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
+
+/* -------------------------------------------------------------- */
+
+/* BODY */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: montserrat;
+    padding-top: 88px;
+}
+
+/* -------------------------------------------------------------- */
+
+.divisor img {
+    margin-bottom: 20px;
+}
+
+.divisor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 90px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    font-family: dancing script;
+    font-size: 45px;
+}
+
+.linha_conteudos {
+    display: flex;
+    justify-content: center;
+    height: 520px;
+    /* width: 100%; */
+    padding: 30px;
+}
+
+.linha_conteudos img {
+    width: 340px;
+    margin-bottom: 20px;
+}
+
+.linha_conteudos strong {
+    color: white;
+    font-size: larger;
+    margin-bottom: 15px;
+}
+
+.linha_conteudos span {
+    font-size: 17px;
+}
+
+.linha_conteudos a {
+    margin-top: 25px;
+    color: white;
+}
+
+.conteudo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+    margin: 20px;
+    background-color: #9F86C0;
+    box-shadow: 5px 5px 10px #2224;
+    width: 350px;
+}

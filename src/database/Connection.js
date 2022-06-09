@@ -5,9 +5,9 @@ let connection = null;
 
 const config = {
     host: "localhost",
-    user: "aluno",
+    user: "root",
     database: "AquelaDaLactose",
-    password: "sptech",
+    password: "Heloisa;Brito@SpTech!01221016@!",
 };
 /**
  * @description Get connection with database
