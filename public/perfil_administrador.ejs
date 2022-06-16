@@ -81,9 +81,9 @@
 
             <img src="img/perfil-adm.png" alt="perfil_adm">
 
-            <h2 id="nome_usuario">Nome Usuário</h2>
+            <h2 id="nome_usuario">Heloisa Brito</h2>
 
-            <span id="email_usuario">exemplo@email.com</span>
+            <span id="email_usuario">heloisa@email.com</span>
             <br>
             <br>
             <span>
@@ -123,14 +123,6 @@
 
     <script>
 
-        var user = sessionStorage.getItem("Usuario")
-        console.log(user)
-
-        var nome = JSON.parse(user).nome
-        var email = JSON.parse(user).email
-
-        nome_usuario.innerHTML = nome;
-        email_usuario.innerHTML = email;
 
         function sair() {
             sessionStorage.clear()

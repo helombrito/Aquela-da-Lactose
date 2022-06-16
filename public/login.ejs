@@ -132,6 +132,10 @@
     <!-- FIM FOOTER -->
 
     <script>
+        var user = sessionStorage.getItem("Usuario")
+        if (user != undefined) {
+            window.location.href = '/perfil_usuario';
+        }
 
         async function entrar() {
             var email = input_email_login.value;
@@ -142,7 +146,7 @@
 
                 if (email == "heloisa.brito@email.com" && senha == "sptech123456") {
                     window.location.href = "/perfil_administrador";
-                    
+
                 } else {
 
                     let datas = {

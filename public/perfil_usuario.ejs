@@ -139,6 +139,9 @@
     <script>
 
         var user = sessionStorage.getItem("Usuario")
+        if (user == undefined) {
+            window.location.href = '/login';
+        }
         console.log(user)
 
         var nome = JSON.parse(user).nome
